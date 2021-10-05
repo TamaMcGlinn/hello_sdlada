@@ -1,5 +1,3 @@
-with Ada.Strings.Unbounded;
-
 with SDL;
 with SDL.Timers;
 with SDL.Video.Pixel_Formats;
@@ -10,12 +8,7 @@ with SDL.Video.Windows.Makers;
 
 procedure Hello_SDL is
 
-   package US renames Ada.Strings.Unbounded;
-   function "+" (S : String) return US.Unbounded_String renames
-     US.To_Unbounded_String;
-   function "+" (S : US.Unbounded_String) return String renames US.To_String;
-
-   Label    : constant US.Unbounded_String     := +"Hello SDL";
+   Label    : constant String                  := "Hello SDL";
    Position : constant SDL.Natural_Coordinates :=
      (SDL.Video.Windows.Undefined_Window_Position (0), 100);
    Width  : constant := 400;
@@ -30,7 +23,7 @@ begin
       W : SDL.Video.Windows.Window;
       S : SDL.Video.Surfaces.Surface;
    begin
-      SDL.Video.Windows.Makers.Create (W, +Label, Position, (Width, Height));
+      SDL.Video.Windows.Makers.Create (W, Label, Position, (Width, Height));
       S := W.Get_Surface;
       for I in 1 .. 255 loop
          declare
