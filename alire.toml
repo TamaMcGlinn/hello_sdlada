@@ -1,0 +1,12 @@
+name = "hello_sdl"
+description = "Shiny new project"
+version = "0.0.0"
+
+authors = ["Tama McGlinn"]
+maintainers = ["Tama McGlinn <t.mcglinn@gmail.com>"]
+maintainers-logins = ["TamaMcGlinn"]
+
+executables = ["hello_sdl"]
+
+[[depends-on]]  # This line was added by `alr with`
+sdlada = "^2.5.4-1"  # This line was added by `alr with`
